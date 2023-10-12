@@ -1,7 +1,12 @@
+using AspMvcSqliteWebApplication.DatabaseContexts;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<CompanyContext>();
 
 var app = builder.Build();
 
@@ -23,5 +28,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+using var scope = app.Services.CreateScope();
+scope.ServiceProvider.GetRequiredService<CompanyContext>().Database.Migrate();
 
 app.Run();
