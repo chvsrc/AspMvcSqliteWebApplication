@@ -37,13 +37,13 @@ namespace AspMvcSqliteWebApplication.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(T entity)
         {
-            if (ModelState.IsValid)
-            {
-                await repository.Add(entity);
-                await repository.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(entity);
+            ////if (ModelState.IsValid)
+            ////{
+            await repository.Add(entity);
+            await repository.SaveChanges();
+            return RedirectToAction("Index");
+            ////}
+            ////return View(entity);
         }
 
         public async Task<IActionResult> Edit(Guid id)
@@ -66,13 +66,13 @@ namespace AspMvcSqliteWebApplication.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                await repository.Update(entity);
-                await repository.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(entity);
+            ////if (ModelState.IsValid)
+            ////{
+            await repository.Update(entity);
+            await repository.SaveChanges();
+            return RedirectToAction("Index");
+            ////}
+            ////return View(entity);
         }
 
         public async Task<IActionResult> Delete(Guid id)
