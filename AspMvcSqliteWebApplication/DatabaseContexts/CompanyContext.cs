@@ -6,21 +6,18 @@ namespace AspMvcSqliteWebApplication.DatabaseContexts
 {
     public class CompanyContext : DbContext
     {
+        private string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
-
-        public string DbPath { get; }
-
-        public CompanyContext()
-        {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "CompanySqliteDatabase.db");
-        }
 
         // The following configures EF to create a Sqlite database file in the
         // special "local" folder for your platform.
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite($"Data Source={DbPath}");
+        {
+            options.UseSqlite($"Data Source={Path.Join(path, "CompanySqliteDatabase.db")}");
+            options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()));
+            options.EnableSensitiveDataLogging(); // Optional: This logs parameter values
+        }
     }
 }
