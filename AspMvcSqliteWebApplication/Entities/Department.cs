@@ -2,10 +2,8 @@
 
 namespace AspMvcSqliteWebApplication.Entities
 {
-    public class Department
+    public class Department : TableData
     {
-        [Key]
-        public int Id { get; set; }
         [Required]
         public string Name { get; set; } = string.Empty;
         [Required]

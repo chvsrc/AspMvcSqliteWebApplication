@@ -1,4 +1,6 @@
 using AspMvcSqliteWebApplication.DatabaseContexts;
+using AspMvcSqliteWebApplication.Interfaces;
+using AspMvcSqliteWebApplication.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<CompanyContext>();
+
+//builder.Services.AddScoped<IRepository<Department>, DepartmentRepository>();
+//builder.Services.AddScoped<IRepository<Employee>, EmployeeRepository>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 var app = builder.Build();
 
