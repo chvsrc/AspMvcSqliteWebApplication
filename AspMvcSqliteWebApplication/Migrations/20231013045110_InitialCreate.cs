@@ -18,7 +18,9 @@ namespace AspMvcSqliteWebApplication.Migrations
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Location = table.Column<string>(type: "TEXT", nullable: false),
+                    CreatedBy = table.Column<string>(type: "TEXT", nullable: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
+                    UpdatedBy = table.Column<string>(type: "TEXT", nullable: false),
                     UpdatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
@@ -37,7 +39,9 @@ namespace AspMvcSqliteWebApplication.Migrations
                     Gender = table.Column<string>(type: "TEXT", nullable: false),
                     Salary = table.Column<int>(type: "INTEGER", nullable: false),
                     DepartmentId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CreatedBy = table.Column<string>(type: "TEXT", nullable: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
+                    UpdatedBy = table.Column<string>(type: "TEXT", nullable: false),
                     UpdatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },

@@ -8,10 +8,16 @@ namespace AspMvcSqliteWebApplication.Entities
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
+        public String CreatedBy { get; set; } = String.Empty;
+
+        [Required]
         public DateTimeOffset CreatedAt { get; set; } = DateTime.Now;
 
         [Required]
-        public DateTimeOffset? UpdatedAt { get; set; } = DateTime.Now;
+        public String UpdatedBy { get; set; } = String.Empty;
+
+        [Required]
+        public DateTimeOffset UpdatedAt { get; set; } = DateTime.Now;
 
         [Required]
         public Boolean IsDeleted { get; set; } = false;

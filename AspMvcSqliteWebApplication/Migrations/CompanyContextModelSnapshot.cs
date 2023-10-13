@@ -26,6 +26,10 @@ namespace AspMvcSqliteWebApplication.Migrations
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("INTEGER");
 
@@ -37,7 +41,10 @@ namespace AspMvcSqliteWebApplication.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTimeOffset?>("UpdatedAt")
+                    b.Property<DateTimeOffset>("UpdatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UpdatedBy")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -53,6 +60,10 @@ namespace AspMvcSqliteWebApplication.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("DepartmentId")
@@ -76,7 +87,10 @@ namespace AspMvcSqliteWebApplication.Migrations
                     b.Property<int>("Salary")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTimeOffset?>("UpdatedAt")
+                    b.Property<DateTimeOffset>("UpdatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UpdatedBy")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
